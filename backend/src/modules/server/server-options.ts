@@ -4,6 +4,9 @@ import { env } from '../../lib/env';
 
 const { port, host } = env.app;
 
+/**
+ * Server options
+ */
 export const serverOptions: ServerOptions = {
   port,
   host,

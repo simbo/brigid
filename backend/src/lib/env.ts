@@ -3,28 +3,41 @@ import { join } from 'path';
 
 import { PATH_ROOT_ABS } from './paths';
 
+/**
+ * Read env file and set contents to process.env
+ */
 const envPath = join(PATH_ROOT_ABS, '.env');
-
 config({ path: envPath });
 
+/**
+ * Get env vars from process.env
+ */
 const { NODE_ENV, APP_HOST, APP_PORT, APP_SSL } = process.env as { [key: string]: string };
 
+/**
+ * Create basic env vars object
+ */
 const envVars = {
   APP_HOST,
   APP_PORT,
   APP_SSL
 };
 
+/**
+ * find undefined env vars
+ */
 const undefinedEnvVars = Object.entries(envVars)
   .filter(([key, value]) => value === undefined)
   .map(([key]) => key);
-
 if (undefinedEnvVars.length) {
   throw new Error(
     `Undefined ENV variable${undefinedEnvVars.length > 1 ? 's' : ''}: "${undefinedEnvVars.join('", "')}"`
   );
 }
 
+/**
+ * Provide enriched env vars object
+ */
 export const env = {
   isProduction: NODE_ENV === 'production',
   isDevelopment: NODE_ENV !== 'production',
