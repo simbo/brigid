@@ -1,0 +1,36 @@
+{
+  "name": "brigid-backend",
+  "description": "",
+  "version": "0.1.0",
+  "repository": "https://github.com/simbo/brigid",
+  "author": "Simon Lepel <simbo@simbo.de> (https://simbo.de/)",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": "^16"
+  },
+  "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "build": "NODE_ENV=production tsc -b tsconfig.json",
+    "clear": "rm -rf dist",
+    "dev": "nodemon --watch \"src/**\" --ext \"ts\" --exec \"NODE_ENV=development ts-node --log-error --project tsconfig.json src/index.ts\"",
+    "lint": "yarn run lint:prettier",
+    "lint:prettier": "prettier --check \"**/*.{ts,tsx,scss,js,md,json,yml}\"",
+    "lint:prettier:fix": "prettier --write \"**/*.{ts,tsx,scss,js,md,json,yml}\"",
+    "start": "yarn dev",
+    "test": "echo \"No tests specified. Skipping...\" && exit 0"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^20.2.2",
+    "@hapi/inert": "^6.0.5",
+    "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "@types/hapi__hapi": "^20",
+    "@types/hapi__inert": "^5",
+    "@types/node": "^16",
+    "nodemon": "^2.0.18",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  }
+}

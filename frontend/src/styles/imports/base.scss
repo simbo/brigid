@@ -1,0 +1,26 @@
+@import 'css-reset-and-normalize/scss/reset-and-normalize';
+@import 'css-reset-and-normalize/scss/button-reset';
+@import 'css-reset-and-normalize/scss/link-reset';
+
+html {
+  font-size: 16px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
+}
+
+body {
+  min-height: 100vh;
+  font-family: $fontstack-sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+pre,
+code {
+  font-family: $fontstack-monospace;
+}

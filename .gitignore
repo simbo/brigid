@@ -1,0 +1,5 @@
+/.yarn/*
+!/.yarn/plugins
+!/.yarn/releases
+
+*.log

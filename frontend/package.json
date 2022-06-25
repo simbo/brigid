@@ -1,0 +1,44 @@
+{
+  "name": "brigid-frontend",
+  "description": "",
+  "version": "0.1.0",
+  "repository": "https://github.com/simbo/brigid",
+  "author": "Simon Lepel <simbo@simbo.de> (https://simbo.de/)",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": "^16"
+  },
+  "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "build": "rm -rf dist && APP_NAME=$(echo \"console.log(require('./package.json').name)\" | node -) APP_VERSION=$(echo \"console.log(require('./package.json').version)\" | node -) APP_COMMIT=$(git log --pretty=format:'%h' -n 1) parcel build src/index.html --public-url /",
+    "dev": "APP_NAME=$(echo \"console.log(require('./package.json').name)\" | node -) APP_VERSION=$(echo \"console.log(require('./package.json').version)\" | node -) APP_COMMIT=$(git log --pretty=format:'%h' -n 1) parcel watch src/index.html --public-url /",
+    "lint": "yarn run lint:prettier",
+    "lint:prettier": "prettier --check \"**/*.{ts,tsx,scss,js,md,json,yml}\"",
+    "lint:prettier:fix": "prettier --write \"**/*.{ts,tsx,scss,js,md,json,yml}\"",
+    "start": "yarn dev",
+    "test": "echo \"No tests specified. Skipping...\" && exit 0"
+  },
+  "targets": {
+    "default": {
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      }
+    }
+  },
+  "dependencies": {
+    "css-reset-and-normalize": "^2.3.6",
+    "preact": "^10.8.2",
+    "rxjs": "^7.5.5",
+    "small-store": "^2.0.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.2",
+    "@parcel/transformer-typescript-tsc": "^2.6.2",
+    "@types/node": "^16",
+    "@types/prettier": "^2",
+    "parcel": "^2.6.2",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  }
+}
