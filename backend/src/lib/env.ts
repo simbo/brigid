@@ -14,7 +14,10 @@ config({ path: envPath });
 /**
  * Get env vars from process.env
  */
-const { NODE_ENV, APP_HOST, APP_PORT, APP_SSL } = process.env as { [key: string]: string };
+const { NODE_ENV, APP_HOST, APP_PORT, APP_SSL, MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE } =
+  process.env as {
+    [key: string]: string;
+  };
 
 /**
  * Create basic env vars object
@@ -22,7 +25,12 @@ const { NODE_ENV, APP_HOST, APP_PORT, APP_SSL } = process.env as { [key: string]
 const envVars = {
   APP_HOST,
   APP_PORT,
-  APP_SSL
+  APP_SSL,
+  MYSQL_HOST,
+  MYSQL_PORT,
+  MYSQL_USER,
+  MYSQL_PASSWORD,
+  MYSQL_DATABASE
 };
 
 /**
@@ -51,5 +59,12 @@ export const env = {
     host: APP_HOST,
     port: parseInt(APP_PORT, 10),
     ssl: APP_SSL === 'true'
+  },
+  db: {
+    host: MYSQL_HOST,
+    port: parseInt(MYSQL_PORT, 10),
+    user: MYSQL_USER,
+    password: MYSQL_PASSWORD,
+    name: MYSQL_DATABASE
   }
 };
