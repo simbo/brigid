@@ -1,6 +1,8 @@
+import { execSync } from 'child_process';
 import { config } from 'dotenv';
 import { join } from 'path';
 
+import * as pkgJson from '../../package.json';
 import { PATH_ROOT_ABS } from './paths';
 
 /**
@@ -42,6 +44,10 @@ export const env = {
   isProduction: NODE_ENV === 'production',
   isDevelopment: NODE_ENV !== 'production',
   app: {
+    name: pkgJson.name,
+    description: pkgJson.description,
+    version: pkgJson.version,
+    commit: execSync(`git log --pretty=format:'%h' -n 1`).toString(),
     host: APP_HOST,
     port: parseInt(APP_PORT, 10),
     ssl: APP_SSL === 'true'

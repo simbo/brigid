@@ -10,7 +10,7 @@ const { port, host } = env.app;
 export const serverOptions: ServerOptions = {
   port,
   host,
-  debug: env.isProduction ? false : { log: ['*'], request: ['*'] },
+  debug: env.isProduction ? { log: ['error'], request: ['error'] } : { log: ['*'], request: ['*'] },
   router: {
     stripTrailingSlash: true
   },

@@ -24,7 +24,8 @@
     "@hapi/hapi": "^20.2.2",
     "@hapi/inert": "^6.0.5",
     "chalk": "^4.1.2",
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "winston": "^3.8.0"
   },
   "devDependencies": {
     "@types/hapi__hapi": "^20",

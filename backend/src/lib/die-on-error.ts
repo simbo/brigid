@@ -5,6 +5,6 @@ import { logger } from '../modules/logger/logger';
  * @param err error
  */
 export function dieOnError(err: Error): void {
-  logger.error(err);
+  logger.error(err.message || err);
   process.exit(1);
 }
