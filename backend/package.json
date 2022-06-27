@@ -23,6 +23,7 @@
   "dependencies": {
     "@hapi/hapi": "^20.2.2",
     "@hapi/inert": "^6.0.5",
+    "bcrypt": "^5.0.1",
     "chalk": "^4.1.2",
     "dotenv": "^16.0.1",
     "mysql": "^2.18.1",
@@ -31,6 +32,7 @@
     "winston": "^3.8.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5",
     "@types/hapi__hapi": "^20",
     "@types/hapi__inert": "^5",
     "@types/mysql": "^2",
