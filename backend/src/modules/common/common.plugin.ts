@@ -1,6 +1,6 @@
 import { Plugin } from '@hapi/hapi';
 
-import { commonRoutes } from './common-routes';
+import { commonRoutes } from './common.routes';
 
 export const commonPlugin: Plugin<{}> = {
   name: 'common',

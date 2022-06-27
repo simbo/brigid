@@ -1,6 +1,6 @@
 import { Plugin } from '@hapi/hapi';
 
-import { apiRoutes } from './api-routes';
+import { apiRoutes } from './api.routes';
 
 export const apiPlugin: Plugin<{}> = {
   name: 'api',
