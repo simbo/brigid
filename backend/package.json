@@ -21,11 +21,14 @@
     "test": "echo \"No tests specified. Skipping...\" && exit 0"
   },
   "dependencies": {
+    "@hapi/boom": "^10.0.0",
     "@hapi/hapi": "^20.2.2",
     "@hapi/inert": "^6.0.5",
     "bcrypt": "^5.0.1",
     "chalk": "^4.1.2",
     "dotenv": "^16.0.1",
+    "joi": "^17.6.0",
+    "joi-password": "^3.0.1",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.6",

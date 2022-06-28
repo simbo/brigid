@@ -76,6 +76,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hapi/boom@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@hapi/boom@npm:10.0.0"
+  dependencies:
+    "@hapi/hoek": 10.x.x
+  checksum: ea2b234fa1c76667b73a541f51e83251233a6f1db2a3f6ade9beb5174ce0ed2b55eea4d8a2a9fd0329bba31e1969c41bdb3af9218bef3abac58a30ea28e3d43e
+  languageName: node
+  linkType: hard
+
 "@hapi/bounce@npm:2.x.x, @hapi/bounce@npm:^2.0.0":
   version: 2.0.0
   resolution: "@hapi/bounce@npm:2.0.0"
@@ -184,6 +193,13 @@ __metadata:
     "@hapi/hoek": 9.x.x
     "@hapi/validate": 1.x.x
   checksum: bca3272ab37ca7eebc9d5f48f070ffa58ac5784efae66243c3790531ccde4e80fb71325a7e2634560541cb326d2f040dc51ebaa37e78256c079499b99329192d
+  languageName: node
+  linkType: hard
+
+"@hapi/hoek@npm:10.x.x":
+  version: 10.0.0
+  resolution: "@hapi/hoek@npm:10.0.0"
+  checksum: d665c61b0a12b017ec442eea441e698c5ed0752b4f092b2494f6507da359996447113838702eb072ea161ba85cb8dbac339b6c8d65e0eab3f39aa712e4346922
   languageName: node
   linkType: hard
 
@@ -978,6 +994,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "brigid-backend@workspace:."
   dependencies:
+    "@hapi/boom": ^10.0.0
     "@hapi/hapi": ^20.2.2
     "@hapi/inert": ^6.0.5
     "@types/bcrypt": ^5
@@ -988,6 +1005,8 @@ __metadata:
     bcrypt: ^5.0.1
     chalk: ^4.1.2
     dotenv: ^16.0.1
+    joi: ^17.6.0
+    joi-password: ^3.0.1
     mysql: ^2.18.1
     pm2: ^5.2.0
     reflect-metadata: ^0.1.13
@@ -2003,7 +2022,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"joi@npm:^17.3.0":
+"joi-password@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "joi-password@npm:3.0.1"
+  dependencies:
+    joi: ^17.6.0
+  checksum: d4b8ff3ab90b23cadb5c3d4c4c63bd788a74dde8f0e17be944d5fea26632b0df3c19539f1c0c2478369c0455679708c3733b046183de3d0a2767b919564c9429
+  languageName: node
+  linkType: hard
+
+"joi@npm:^17.3.0, joi@npm:^17.6.0":
   version: 17.6.0
   resolution: "joi@npm:17.6.0"
   dependencies:
