@@ -1,0 +1,7 @@
+/**
+ * returns the given value rounded with respective precision
+ * e.g. possible results with precision `.5`: .5, 1, 1.5, 2, 2.5, 3,...
+ */
+@function precise-round($value, $precision: 1) {
+  @return round(div($value, $precision)) * $precision;
+}

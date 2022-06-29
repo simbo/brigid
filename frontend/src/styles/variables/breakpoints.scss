@@ -1,0 +1,46 @@
+$breakpoints: (
+  1: 480,
+  2: 768,
+  3: 1024,
+  4: 1280,
+  5: 1440,
+  6: 1740
+);
+
+$grid-min-width: 288px;
+
+// 0.02px is subtracted instead of 1px as viewport width can be fractional, resulting in gaps in integer values
+// between 1023px and 1024px. This is a issue in some versions of Windows 10 where no styling
+// gets applied when viewport width is exactly breakpoint-1.
+$breakpoint-min-step: 0.02;
+
+$breakpoint-thresholds: (
+  1: (
+    null,
+    (map-get($breakpoints, 1) - $breakpoint-min-step)
+  ),
+  2: (
+    map-get($breakpoints, 1),
+    (map-get($breakpoints, 2) - $breakpoint-min-step)
+  ),
+  3: (
+    map-get($breakpoints, 2),
+    (map-get($breakpoints, 3) - $breakpoint-min-step)
+  ),
+  4: (
+    map-get($breakpoints, 3),
+    (map-get($breakpoints, 4) - $breakpoint-min-step)
+  ),
+  5: (
+    map-get($breakpoints, 4),
+    (map-get($breakpoints, 5) - $breakpoint-min-step)
+  ),
+  6: (
+    map-get($breakpoints, 5),
+    (map-get($breakpoints, 6) - $breakpoint-min-step)
+  ),
+  7: (
+    map-get($breakpoints, 6),
+    null
+  )
+);

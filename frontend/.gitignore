@@ -1,4 +1,16 @@
 /dist
 /node_modules
 /.yarn
-/.parcel-cache
+/coverage
+/.angular
+
+*.log
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+.DS_Store
+Thumbs.db

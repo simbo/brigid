@@ -1,26 +1,28 @@
-{
+/* To learn more about this file see: https://angular.io/config/tsconfig. */ {
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
   "compileOnSave": false,
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "jsx": "preserve",
-    "jsxFactory": "h",
-    "jsxFragmentFactory": "Fragment",
-    "lib": ["esnext", "dom"],
+    "lib": ["es2020", "dom"],
     "module": "es2020",
     "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
     "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "removeComments": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "strict": true,
-    "strictPropertyInitialization": true,
     "target": "es2020"
-  },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  }
 }

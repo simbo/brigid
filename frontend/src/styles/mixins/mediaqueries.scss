@@ -1,0 +1,141 @@
+/**
+ * block mixin for media queries with min-width and max-width
+ */
+@mixin mq-min-max($min, $max) {
+  $min: strip-unit($min);
+  $max: strip-unit($max);
+  @media screen and (min-width: $min * 1px) and (max-width: $max * 1px) {
+    @content;
+  }
+}
+
+/**
+ * block mixin for media queries with min-width
+ */
+@mixin mq-min($min) {
+  $min: strip-unit($min);
+  @media screen and (min-width: $min * 1px) {
+    @content;
+  }
+}
+
+/**
+ * block mixin for media queries with max-width
+ */
+@mixin mq-max($max) {
+  $max: strip-unit($max);
+  @media screen and (max-width: $max * 1px) {
+    @content;
+  }
+}
+
+/**
+ * block mixin for predefined numbered media query thresholds
+ * see also `../variables/breakpoints`
+ */
+@mixin mq($rawThreshold, $boundary: null) {
+  // if two thresholds are given
+  @if type-of($rawThreshold) == 'list' or type-of($boundary) == 'number' {
+    $threshold: $rawThreshold;
+
+    @if type-of($boundary) == 'number' {
+      $threshold: ($threshold, $boundary);
+      $boundary: null;
+    }
+
+    $threshold-min: nth($threshold, 1);
+    $threshold-max: nth($threshold, 2);
+
+    @if $boundary != null {
+      @error "boundaries are not allowed when using a breakpoint threshold list: #{$boundary}";
+    }
+
+    @if $threshold-min >= $threshold-max {
+      @error "minimum breakpoint threshold has to be lower than maximum breakpoint threshold: (#{$threshold})";
+    }
+
+    $t-min: map-get($breakpoint-thresholds, $threshold-min);
+    $t-max: map-get($breakpoint-thresholds, $threshold-max);
+
+    @if $t-min == null {
+      @error "unknown minimum breakpoint threshold: #{$threshold-min}";
+    }
+    @if $t-max == null {
+      @error "unknown maximum breakpoint threshold: #{$threshold-max}";
+    }
+
+    $min: nth($t-min, 1);
+    $max: nth($t-max, 2);
+
+    @if $min == null {
+      @error "breakpoint threshold #{$threshold-min} (#{$t-min}) is not suitable as minimum breakpoint when using a threshold list";
+    }
+    @if $max == null {
+      @error "breakpoint threshold #{$threshold-max} (#{$t-max}) is not suitable as maximum breakpoint when using a threshold list";
+    }
+
+    @include mq-min-max($min, $max) {
+      @content;
+    }
+  }
+
+  // if one threshold with optional boundary is given
+  @else {
+    // get the threshold definition
+    $threshold: map-get($breakpoint-thresholds, $rawThreshold);
+
+    @if $threshold == null {
+      @error "unknown breakpoint threshold: #{$rawThreshold}";
+    }
+
+    // set boundary to string values if names are given
+    @if $boundary == min {
+      $boundary: 'min';
+    }
+    @if $boundary == max {
+      $boundary: 'max';
+    }
+
+    // if boundary is something else than 'min' or 'max'
+    @if $boundary != null and $boundary != 'min' and $boundary != 'max' {
+      @error "unknown breakpoint boundary: #{$boundary}";
+    }
+
+    // get min and max values from threshold definition
+    $min: nth($threshold, 1);
+    $max: nth($threshold, 2);
+
+    @if $boundary == null {
+      @if $min == null and $max == null {
+        @error "breakpoint threshold #{$rawThreshold} (#{$threshold}) has neither min nor max value";
+      } @else if $max == null {
+        @include mq-min($min) {
+          @content;
+        }
+      } @else if $min == null {
+        @include mq-max($max) {
+          @content;
+        }
+      } @else {
+        @include mq-min-max($min, $max) {
+          @content;
+        }
+      }
+    } @else if $boundary == 'min' {
+      @if $min == null {
+        @error "breakpoint threshold #{$rawThreshold} (#{$threshold}) is not suitable for minimum boundary";
+      } @else {
+        @include mq-min($min) {
+          @content;
+        }
+      }
+    } @else if $boundary == 'max' {
+      @if $max == null or $min == null {
+        @error "breakpoint threshold #{$rawThreshold} (#{$threshold}) is not suitable for maximum boundary";
+      }
+      @include mq-max($max) {
+        @content;
+      }
+    }
+  }
+}

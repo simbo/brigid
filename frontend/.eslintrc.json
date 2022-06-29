@@ -1,0 +1,408 @@
+{
+  "ignorePatterns": ["projects/**/*"],
+  "overrides": [
+    {
+      "extends": [
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "files": ["*.ts"],
+      "parserOptions": {
+        "createDefaultProgram": true,
+        "project": ["tsconfig.json"]
+      },
+      "plugins": ["eslint-plugin-unicorn", "editorconfig"],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "bf",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "bf",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ],
+        "@angular-eslint/no-input-rename": "off",
+        "@angular-eslint/no-output-rename": "off",
+        "@typescript-eslint/array-type": [
+          "error",
+          {
+            "default": "array"
+          }
+        ],
+        "@typescript-eslint/await-thenable": "error",
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/dot-notation": ["error"],
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowConciseArrowFunctionExpressionsStartingWithVoid": true,
+            "allowDirectConstAssertionInArrowFunctions": true,
+            "allowExpressions": true,
+            "allowHigherOrderFunctions": true,
+            "allowTypedFunctionExpressions": true
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "accessibility": "explicit"
+          }
+        ],
+        "@typescript-eslint/indent": ["off"], // 'off' on purpose, handled by prettier
+        "@typescript-eslint/method-signature-style": ["error", "method"],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "format": ["camelCase"],
+            "selector": "default"
+          },
+          {
+            "format": ["camelCase", "UPPER_CASE"],
+            "selector": "variable"
+          },
+          {
+            "custom": {
+              "match": true,
+              "regex": "^([a-z][a-z0-9]*([A-Z][a-z0-9]*)*)\\$?|([A-Z][A-Z0-9]*(_[A-Z0-9]+)*)|([A-Z]+-[0-9]+#?)|[0-9]+$"
+            },
+            "format": null,
+            "selector": ["objectLiteralProperty", "typeProperty"]
+          },
+          {
+            "format": ["PascalCase"],
+            "selector": "typeLike"
+          },
+          {
+            "format": ["PascalCase"],
+            "selector": "enumMember"
+          }
+        ],
+        "@typescript-eslint/no-empty-function": [
+          "error",
+          {
+            "allow": ["arrowFunctions"]
+          }
+        ],
+        "@typescript-eslint/no-empty-interface": ["error"],
+        "@typescript-eslint/no-explicit-any": ["off"], // 'off' on purpose, handled by tsconfig
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/no-require-imports": ["error"],
+        "@typescript-eslint/no-shadow": ["error"],
+        "@typescript-eslint/no-unused-expressions": [
+          "error",
+          {
+            "allowTernary": true
+          }
+        ],
+        "@typescript-eslint/no-var-requires": ["error"],
+        "@typescript-eslint/prefer-readonly": "error",
+        "@typescript-eslint/promise-function-async": "error",
+        "@typescript-eslint/quotes": [
+          "error",
+          "single",
+          {
+            "allowTemplateLiterals": true,
+            "avoidEscape": true
+          }
+        ],
+        "@typescript-eslint/typedef": ["off"], // 'off' on purpose, handled by tsconfig
+        "arrow-body-style": ["error", "as-needed"],
+        "arrow-parens": ["error", "as-needed"],
+        "brace-style": ["error", "1tbs"],
+        "comma-dangle": "error",
+        "complexity": [
+          "error",
+          {
+            "max": 12
+          }
+        ],
+        "default-case": ["error"],
+        "editorconfig/charset": ["error"],
+        "editorconfig/eol-last": ["error"],
+        "editorconfig/indent": ["off"], // 'off' on purpose, handled by prettier
+        "editorconfig/linebreak-style": ["error"],
+        "editorconfig/no-trailing-spaces": ["error"],
+        "import/order": [
+          "error",
+          {
+            "alphabetize": {
+              "caseInsensitive": true,
+              "order": "asc"
+            },
+            "groups": [["builtin", "external"], "internal"],
+            "newlines-between": "always"
+          }
+        ],
+        "indent": ["off"], // 'off' on purpose, handled by prettier
+        "linebreak-style": ["off"], // 'off' on purpose, handled by editorconfig rules
+        "max-len": [
+          "error",
+          {
+            "code": 256
+          }
+        ],
+        "no-console": [
+          "error",
+          {
+            "allow": [
+              "dir",
+              "timeLog",
+              "assert",
+              "clear",
+              "count",
+              "countReset",
+              "group",
+              "groupEnd",
+              "table",
+              "dirxml",
+              "groupCollapsed",
+              "Console",
+              "profile",
+              "profileEnd",
+              "timeStamp",
+              "context"
+            ]
+          }
+        ],
+        "no-duplicate-imports": "error",
+        "no-empty": ["error"],
+        "no-irregular-whitespace": "error",
+        "no-multiple-empty-lines": [
+          "error",
+          {
+            "max": 2
+          }
+        ],
+        "no-redeclare": ["error"],
+        "no-restricted-globals": [
+          "error",
+          "postMessage",
+          "blur",
+          "focus",
+          "close",
+          "frames",
+          "self",
+          "parent",
+          "opener",
+          "top",
+          "length",
+          "closed",
+          "location",
+          "origin",
+          "name",
+          "locationbar",
+          "menubar",
+          "personalbar",
+          "scrollbars",
+          "statusbar",
+          "toolbar",
+          "status",
+          "frameElement",
+          "navigator",
+          "customElements",
+          "external",
+          "screen",
+          "innerWidth",
+          "innerHeight",
+          "scrollX",
+          "pageXOffset",
+          "scrollY",
+          "pageYOffset",
+          "screenX",
+          "screenY",
+          "outerWidth",
+          "outerHeight",
+          "devicePixelRatio",
+          "clientInformation",
+          "screenLeft",
+          "screenTop",
+          "defaultStatus",
+          "defaultstatus",
+          "styleMedia",
+          "onanimationend",
+          "onanimationiteration",
+          "onanimationstart",
+          "onsearch",
+          "ontransitionend",
+          "onwebkitanimationend",
+          "onwebkitanimationiteration",
+          "onwebkitanimationstart",
+          "onwebkittransitionend",
+          "isSecureContext",
+          "onabort",
+          "onblur",
+          "oncancel",
+          "oncanplay",
+          "oncanplaythrough",
+          "onchange",
+          "onclick",
+          "onclose",
+          "oncontextmenu",
+          "oncuechange",
+          "ondblclick",
+          "ondrag",
+          "ondragend",
+          "ondragenter",
+          "ondragleave",
+          "ondragover",
+          "ondragstart",
+          "ondrop",
+          "ondurationchange",
+          "onemptied",
+          "onended",
+          "onerror",
+          "onfocus",
+          "oninput",
+          "oninvalid",
+          "onkeydown",
+          "onkeypress",
+          "onkeyup",
+          "onload",
+          "onloadeddata",
+          "onloadedmetadata",
+          "onloadstart",
+          "onmousedown",
+          "onmouseenter",
+          "onmouseleave",
+          "onmousemove",
+          "onmouseout",
+          "onmouseover",
+          "onmouseup",
+          "onmousewheel",
+          "onpause",
+          "onplay",
+          "onplaying",
+          "onprogress",
+          "onratechange",
+          "onreset",
+          "onresize",
+          "onscroll",
+          "onseeked",
+          "onseeking",
+          "onselect",
+          "onstalled",
+          "onsubmit",
+          "onsuspend",
+          "ontimeupdate",
+          "ontoggle",
+          "onvolumechange",
+          "onwaiting",
+          "onwheel",
+          "onauxclick",
+          "ongotpointercapture",
+          "onlostpointercapture",
+          "onpointerdown",
+          "onpointermove",
+          "onpointerup",
+          "onpointercancel",
+          "onpointerover",
+          "onpointerout",
+          "onpointerenter",
+          "onpointerleave",
+          "onafterprint",
+          "onbeforeprint",
+          "onbeforeunload",
+          "onhashchange",
+          "onlanguagechange",
+          "onmessage",
+          "onmessageerror",
+          "onoffline",
+          "ononline",
+          "onpagehide",
+          "onpageshow",
+          "onpopstate",
+          "onrejectionhandled",
+          "onstorage",
+          "onunhandledrejection",
+          "onunload",
+          "performance",
+          "stop",
+          "open",
+          "print",
+          "captureEvents",
+          "releaseEvents",
+          "getComputedStyle",
+          "matchMedia",
+          "moveTo",
+          "moveBy",
+          "resizeTo",
+          "resizeBy",
+          "getSelection",
+          "find",
+          "createImageBitmap",
+          "scroll",
+          "scrollTo",
+          "scrollBy",
+          "onappinstalled",
+          "onbeforeinstallprompt",
+          "crypto",
+          "ondevicemotion",
+          "ondeviceorientation",
+          "ondeviceorientationabsolute",
+          "indexedDB",
+          "webkitStorageInfo",
+          "chrome",
+          "visualViewport",
+          "speechSynthesis",
+          "webkitRequestFileSystem",
+          "webkitResolveLocalFileSystemURL",
+          "openDatabase",
+          "window",
+          "document",
+          "setTimeout",
+          "setInterval",
+          "addEventListener",
+          "removeEventListener"
+        ],
+        "no-return-await": "error",
+        "no-shadow": "off", // 'off' on purpose, handled by corresponding typescript rule
+        "prefer-arrow/prefer-arrow-functions": [
+          "error",
+          {
+            "allowStandaloneDeclarations": true,
+            "classPropertiesAllowed": false,
+            "disallowPrototype": true,
+            "singleReturnOnly": false
+          }
+        ],
+        "prefer-template": "error",
+        "space-before-function-paren": [
+          "error",
+          {
+            "anonymous": "always",
+            "asyncArrow": "always",
+            "named": "never"
+          }
+        ],
+        "space-in-parens": ["error", "never"],
+        "unicode-bom": ["off"], // 'off' on purpose, handled by editorconfig rules
+        "unicorn/filename-case": "error"
+      },
+      "settings": {
+        "import/internal-regex": "^src/"
+      }
+    },
+    {
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "files": ["*.html"],
+      "rules": {}
+    },
+    {
+      "extends": ["plugin:ngrx/recommended"],
+      "files": ["*.ts"],
+      "rules": {
+        "ngrx/prefer-effect-callback-in-block-statement": ["off"] // off as it conflicts with / is handled by 'arrow-body-style'
+      }
+    }
+  ],
+  "root": true
+}
