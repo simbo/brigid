@@ -71,7 +71,7 @@ exports.default = {
           // apply custom scss options
           if (/\/sass-loader\//.test(use.loader)) {
             // prepend env file to every sass file
-            use.options.additionalData = '@use \'sass:math\' as math; @import "env";';
+            use.options.additionalData = "@use 'sass:math' as math; @use '@angular/material' as mat; @import \"env\";";
             // support importing sass files from node_modules by simple prepending a `~`
             use.options.webpackImporter = true;
             // set `./src/styles` as base path for every sass import

@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $fontstack-sans;
+}
+
+pre,
+code,
+kbd {
+  font-family: $fontstack-monospace;
+}
+
+@include mat.core($bf-custom-typography);
+@include mat.core-theme($bf-theme-light);
+
+// TODO: only include theme styles for components that are actually used
+// e.g. @include mat.button-theme($bf-theme);
+@include mat.all-component-themes($bf-theme-light);
+
+.theme-mode--dark {
+  @include mat.core-color($bf-theme-dark);
+  @include mat.all-component-colors($bf-theme-dark);
+}

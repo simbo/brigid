@@ -296,6 +296,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular/cdk@npm:14.0.3":
+  version: 14.0.3
+  resolution: "@angular/cdk@npm:14.0.3"
+  dependencies:
+    parse5: ^5.0.0
+    tslib: ^2.3.0
+  peerDependencies:
+    "@angular/common": ^14.0.0 || ^15.0.0
+    "@angular/core": ^14.0.0 || ^15.0.0
+    rxjs: ^6.5.3 || ^7.4.0
+  dependenciesMeta:
+    parse5:
+      optional: true
+  checksum: f87ee93f9397e557edd72984bf71b5564b1c95514da842624bd8558ade53413f061edd21acf6bd8fd188c07607d38dd14dbeaf4edc78eed4553291dfe64b3677
+  languageName: node
+  linkType: hard
+
 "@angular/cli@npm:~14.0.3":
   version: 14.0.3
   resolution: "@angular/cli@npm:14.0.3"
@@ -400,6 +417,23 @@ __metadata:
     "@angular/platform-browser": 14.0.3
     rxjs: ^6.5.3 || ^7.4.0
   checksum: d723bf9428685dc7139bac93919b89cc1c57bd639616b3e040d5fbcadbd48001c7bbc58d86159e6763e5a10f3285d723281f89f19cda9c5ec93a7e83127e6efe
+  languageName: node
+  linkType: hard
+
+"@angular/material@npm:14.0.3":
+  version: 14.0.3
+  resolution: "@angular/material@npm:14.0.3"
+  dependencies:
+    tslib: ^2.3.0
+  peerDependencies:
+    "@angular/animations": ^14.0.0 || ^15.0.0
+    "@angular/cdk": 14.0.3
+    "@angular/common": ^14.0.0 || ^15.0.0
+    "@angular/core": ^14.0.0 || ^15.0.0
+    "@angular/forms": ^14.0.0 || ^15.0.0
+    "@angular/platform-browser": ^14.0.0 || ^15.0.0
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: f416109d1c23d516d9b774f7ef7765d532e6af8019bf90980f93e780d577a39a605d1f8aa51050053e7e910f5024a54a958cb4a17adadc8a368f4a78d2e155f3
   languageName: node
   linkType: hard
 
@@ -3612,12 +3646,14 @@ __metadata:
     "@angular-eslint/schematics": ^14.0.0
     "@angular-eslint/template-parser": ^14.0.0
     "@angular/animations": ^14.0.3
+    "@angular/cdk": 14.0.3
     "@angular/cli": ~14.0.3
     "@angular/common": ^14.0.3
     "@angular/compiler": ^14.0.3
     "@angular/compiler-cli": ^14.0.3
     "@angular/core": ^14.0.3
     "@angular/forms": ^14.0.3
+    "@angular/material": 14.0.3
     "@angular/platform-browser": ^14.0.3
     "@angular/platform-browser-dynamic": ^14.0.3
     "@angular/router": ^14.0.3
@@ -9106,6 +9142,13 @@ __metadata:
   dependencies:
     parse5: ^6.0.1
   checksum: c62961aeac04a1fc4a6ce1053520da935694abb877d2b8284258361768b10c424e2c1a25aec22aa1e7841d36a74caddf79a0544020bdb43c7d57f90a5f7bacca
+  languageName: node
+  linkType: hard
+
+"parse5@npm:^5.0.0":
+  version: 5.1.1
+  resolution: "parse5@npm:5.1.1"
+  checksum: 613a714af4c1101d1cb9f7cece2558e35b9ae8a0c03518223a4a1e35494624d9a9ad5fad4c13eab66a0e0adccd9aa3d522fc8f5f9cc19789e0579f3fa0bdfc65
   languageName: node
   linkType: hard
 

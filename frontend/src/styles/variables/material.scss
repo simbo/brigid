@@ -1,0 +1,36 @@
+$bf-custom-level: mat.define-typography-level(
+  $font-family: $fontstack-sans,
+  $font-weight: 400,
+  $font-size: 1rem,
+  $line-height: 1,
+  $letter-spacing: normal
+);
+
+$bf-custom-typography: mat.define-typography-config(
+  $display-4: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $display-3: mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $display-2: mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $display-1: mat.define-typography-level(34px, 40px, 400),
+  $headline: mat.define-typography-level(24px, 32px, 400)
+);
+
+$bf-primary: mat.define-palette(mat.$grey-palette, 500);
+$bf-accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
+
+$bf-theme-light: mat.define-light-theme(
+  (
+    color: (
+      primary: $bf-primary,
+      accent: $bf-accent
+    )
+  )
+);
+
+$bf-theme-dark: mat.define-dark-theme(
+  (
+    color: (
+      primary: $bf-primary,
+      accent: $bf-accent
+    )
+  )
+);
