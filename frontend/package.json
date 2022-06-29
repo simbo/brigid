@@ -16,8 +16,9 @@
     "build": "yarn build:prod",
     "build:dev": "yarn __build --configuration development",
     "build:prod": "yarn __build --configuration production",
+    "bundle-analyzer": "yarn clean && yarn build:prod --stats-json && webpack-bundle-analyzer ./dist/brigid-frontend/stats.json",
     "check": "yarn format-and-lint && yarn test:once && yarn build:prod",
-    "clean": "rm -rf ./dist/owcc",
+    "clean": "rm -rf ./dist/brigid-frontend",
     "coverage:open": "open -a Google\\ Chrome ./coverage/lcov-report/index.html",
     "deps:refresh": "rm -rf node_modules yarn.lock && yarn cache clean && yarn install",
     "deps:upgrade": "../bin/upgrade-dependencies.sh frontend",
@@ -83,6 +84,7 @@
     "@types/lodash-es": "^4",
     "@types/node": "^16",
     "@types/prettier": "^2",
+    "@types/webpack-bundle-analyzer": "^4",
     "@typescript-eslint/eslint-plugin": "^5.30.0",
     "@typescript-eslint/parser": "^5.30.0",
     "autoprefixer": "^10.4.7",
@@ -118,6 +120,7 @@
     "stylelint-config-recommended-scss": "^6.0.0",
     "stylelint-scss": "^4.2.0",
     "typescript": "~4.7.2",
-    "webpack": "^5.73.0"
+    "webpack": "^5.73.0",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }
