@@ -90,7 +90,7 @@
         "test": {
           "builder": "ngx-build-plus:karma",
           "options": {
-            "main": "src/test.ts",
+            "main": "src/test/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",

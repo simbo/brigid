@@ -397,7 +397,7 @@
       "rules": {}
     },
     {
-      "extends": ["plugin:ngrx/recommended"],
+      "extends": ["plugin:@ngrx/recommended"],
       "files": ["*.ts"],
       "rules": {
         "ngrx/prefer-effect-callback-in-block-statement": ["off"] // off as it conflicts with / is handled by 'arrow-body-style'

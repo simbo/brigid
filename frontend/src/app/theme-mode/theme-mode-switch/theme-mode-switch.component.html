@@ -1,0 +1,8 @@
+<button
+  *ngIf="target$ | async as target"
+  (click)="setThemeMode(target)"
+  mat-icon-button
+  [attr.aria-label]="label$ | async"
+>
+  <mat-icon>{{ icon$ | async }}</mat-icon>
+</button>
